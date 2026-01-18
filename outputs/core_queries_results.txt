@@ -1,0 +1,47 @@
+Q1: Customers
+ customer_id |  full_name   |       email       |         created_at         
+-------------+--------------+-------------------+----------------------------
+           1 | Alice Nguyen | alice@example.com | 2026-01-10 17:58:18.043797
+           2 | Bob Tran     | bob@example.com   | 2026-01-10 17:58:18.043797
+           3 | Chris Pham   | chris@example.com | 2026-01-10 17:58:18.043797
+(3 rows)
+
+Q2: Orders with customer names
+ order_id |  full_name   |  status   |         created_at         
+----------+--------------+-----------+----------------------------
+        1 | Alice Nguyen | open      | 2026-01-10 17:58:18.050395
+        2 | Bob Tran     | completed | 2026-01-10 17:58:18.050395
+        3 | Chris Pham   | open      | 2026-01-10 17:58:18.050395
+(3 rows)
+
+Q3: order totals per order
+ order_id | order_total 
+----------+-------------
+        2 |       39.99
+        1 |       14.48
+(2 rows)
+
+Q4: Active products under $20
+ product_id | product_name | price | active 
+------------+--------------+-------+--------
+          2 | Pen          |  1.50 | t
+          1 | Notebook     |  4.99 | t
+          4 | Water Bottle | 12.00 | t
+(3 rows)
+
+Q5: Orders with no items
+ order_id 
+----------
+        3
+(1 row)
+
+ audit_id | product_id | change_qty | reason | changed_at 
+----------+------------+------------+--------+------------
+(0 rows)
+
+ customer_id |  full_name   | total_spent 
+-------------+--------------+-------------
+           2 | Bob Tran     |       39.99
+           1 | Alice Nguyen |       14.48
+(2 rows)
+

@@ -1,0 +1,16 @@
+                                            Table "public.orders"
+   Column    |            Type             | Collation | Nullable |                 Default                  
+-------------+-----------------------------+-----------+----------+------------------------------------------
+ order_id    | integer                     |           | not null | nextval('orders_order_id_seq'::regclass)
+ customer_id | integer                     |           | not null | 
+ status      | text                        |           | not null | 
+ created_at  | timestamp without time zone |           | not null | now()
+Indexes:
+    "orders_pkey" PRIMARY KEY, btree (order_id)
+Check constraints:
+    "orders_status_check" CHECK (status = ANY (ARRAY['open'::text, 'completed'::text, 'cancelled'::text]))
+Foreign-key constraints:
+    "orders_customer_id_fkey" FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+Referenced by:
+    TABLE "order_items" CONSTRAINT "order_items_order_id_fkey" FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
+

@@ -1,0 +1,22 @@
+T1: SUCCESSFUL TRANSACTION (commit)
+BEGIN
+INSERT 0 1
+COMMIT
+T1 CHECK: latest order + items (should exist)
+ order_id | customer_id | status |         created_at         
+----------+-------------+--------+----------------------------
+        6 |           1 | open   | 2026-01-10 18:08:01.559388
+(1 row)
+
+ order_id | product_id | quantity | unit_price 
+----------+------------+----------+------------
+        6 |          1 |        2 |       4.99
+        4 |          1 |        2 |       4.99
+        2 |          3 |        1 |      39.99
+(3 rows)
+
+T2: FAILURE TRANSACTION (rollback on FK violation)
+Expect an ERROR below (product_id 999 does not exist).
+BEGIN
+ROLLBACK
+T2 CHECK: If you see this line, something is wrong (it should not print).

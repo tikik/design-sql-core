@@ -1,0 +1,1 @@
+sudo -u postgres psql -d repo-sql1 -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
