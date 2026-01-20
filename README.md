@@ -18,8 +18,8 @@ This project demonstrates relational modeling, shcema design, SQL curd operation
     - 05_transactions.sql
     
 ## Notes
-This prject focuses on core relational design 
-ADvanced SQL objects (views, indexes, procedures, triggers) are in project/repo2.
+This prject focuses on core relational design.  
+Advanced SQL objects (views, indexes, procedures, triggers) are in project/repo2.
 
 ##Engineering Notes & Lessons Learned
 
