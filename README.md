@@ -1,5 +1,5 @@
 # Relational Database design & core sql 
-This project demonstrates relational modeling, shcema design, SQL curd operations, joins, transaction handling, data integrity using postgresql.
+This project demonstrates relational modeling, shcema design, SQL curd operations, joins, transaction handling, data integrity using postgresql. Adopted learning outcomes from CS 240 and CS 243 offered by Arapahoe Community College, Littleton, CO. 
 
 
 ## Key Concepts
