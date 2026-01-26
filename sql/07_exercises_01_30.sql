@@ -68,6 +68,7 @@ FROM products
 WHERE price BETWEEN 5 AND 20
 ORDER BY price;
 
+-- 13. List all customers whose name is Tran:
 \echo 'E13: Customers whose name contains Tran'
 SELECT *
 FROM customers
