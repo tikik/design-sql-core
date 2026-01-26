@@ -16,7 +16,13 @@ This project demonstrates relational modeling, shcema design, SQL curd operation
     - 03_seed_data.sql
     - 04_core_queries.sql
     - 05_transactions.sql
-    
+    - 06_securities.sql
+3. Security & Access Control
+    This project includes least-privilege roles:
+    app_read: read-only access for dashboards
+    app_write: limited write access for transactional operations
+    Demonstrates production-grade database governance.
+        
 ## Notes
 This prject focuses on core relational design.  
 Advanced SQL objects (views, indexes, procedures, triggers) are in project/repo2.
