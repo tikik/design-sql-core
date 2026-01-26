@@ -99,17 +99,20 @@ JOIN products p
   ON p.product_id = oi.product_id
 ORDER BY oi.order_id, p.product_name;
 
+-- 16. Find any duplicate emails
 \echo 'E16: Any duplicate emails? (should return 0 rows)'
 SELECT email, COUNT(*) AS cnt
 FROM customers
 GROUP BY email
-HAVING COUNT(*) > 1;
+HAVING cnt > 1;
 
+-- 17. List any invalid orders:
 \echo 'E17: Any invalid order statuses? (should return 0 rows)'
 SELECT *
 FROM orders
 WHERE status NOT IN ('open','completed','cancelled');
 
+-- 18. How much did we make per order
 \echo 'E18: Order totals per order'
 SELECT
   o.order_id,
@@ -120,6 +123,7 @@ JOIN order_items oi
 GROUP BY o.order_id
 ORDER BY order_total DESC;
 
+-- 19. Calclate how much each customer spend in our store? 
 \echo 'E19: Total revenue per customer (include customers with 0 revenue)'
 SELECT
   c.customer_id,
@@ -133,6 +137,7 @@ LEFT JOIN order_items oi
 GROUP BY c.customer_id, c.full_name
 ORDER BY revenue DESC;
 
+-- 20. List all customers with no orders:
 \echo 'E20: Customers with no orders'
 SELECT c.customer_id, c.full_name
 FROM customers c
@@ -141,6 +146,7 @@ LEFT JOIN orders o
 WHERE o.order_id IS NULL
 ORDER BY c.customer_id;
 
+-- 21. What orders do not have items?
 \echo 'E21: Orders with no items'
 SELECT o.order_id
 FROM orders o
@@ -149,6 +155,7 @@ LEFT JOIN order_items oi
 WHERE oi.order_id IS NULL
 ORDER BY o.order_id;
 
+-- 22. List top 5 products sold?
 \echo 'E22: Top 5 products by quantity sold'
 SELECT
   p.product_id,
@@ -161,6 +168,7 @@ GROUP BY p.product_id, p.product_name
 ORDER BY total_sold DESC
 LIMIT 5;
 
+-- 23. What is the average order value?
 \echo 'E23: Average order value (AOV)'
 WITH order_totals AS (
   SELECT o.order_id, SUM(oi.quantity * oi.unit_price) AS total
@@ -172,6 +180,7 @@ WITH order_totals AS (
 SELECT AVG(total) AS avg_order_value
 FROM order_totals;
 
+-- 24. How many orders per customer?
 \echo 'E24: Orders per customer'
 SELECT
   c.customer_id,
@@ -183,6 +192,7 @@ LEFT JOIN orders o
 GROUP BY c.customer_id, c.full_name
 ORDER BY order_count DESC;
 
+-- 25. How many orders open in 7 days ? 
 \echo 'E25: Open orders older than 7 days (ops risk)'
 SELECT *
 FROM orders
