@@ -19,9 +19,8 @@ This project demonstrates relational modeling, shcema design, SQL curd operation
     - 06_securities.sql
 3. Security & Access Control
     This project includes least-privilege roles:
-    app_read: read-only access for dashboards
-    app_write: limited write access for transactional operations
-    Demonstrates production-grade database governance.
+    - app_read: read-only access for dashboards
+    - app_write: limited write access for transactional operations. We have read access to all tables or sequences, but limited write access to transactional tables, so that orders cannot be deleted. 
         
 ## Notes
 This prject focuses on core relational design.  
