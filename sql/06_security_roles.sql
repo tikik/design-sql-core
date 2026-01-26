@@ -13,7 +13,7 @@ EXCEPTION WHEN duplicate_object THEN
   RAISE NOTICE 'Role app_write already exists. Skipping.';
 END $$;
 
--- Grant schema usage
+-- Grant schema usage (access to any object in public)
 GRANT USAGE ON SCHEMA public TO app_read, app_write;
 
 -- Grant table-level permissions
