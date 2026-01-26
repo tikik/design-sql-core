@@ -74,6 +74,7 @@ SELECT *
 FROM customers
 WHERE full_name ILIKE '%Tran%';
 
+-- 14. List all orders that our store have and cusomters name as well. Might need left join and coalesce. 
 \echo 'E14: Orders with customer names'
 SELECT
   o.order_id,
@@ -85,6 +86,7 @@ JOIN customers c
   ON c.customer_id = o.customer_id
 ORDER BY o.created_at DESC;
 
+-- 15. List products names and line items they belong to. 
 \echo 'E15: Order line items with product names'
 SELECT
   oi.order_id,
